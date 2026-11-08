@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "menuhider@jikuixie.local": {
+      "updates": [
+        {
+          "version": "0.6.0",
+          "update_link": "https://github.com/ActiveSky/zotero-hide-manage/releases/download/v0.6.0/hide-manage.xpi"
+        }
+      ]
+    }
+  }
+}

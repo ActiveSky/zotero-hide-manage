@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Hide Manage",
+  "version": "0.6.0",
+  "description": "Take back control of Zotero's menus: keep native items, manage everything third-party plugins inject.",
+  "homepage_url": "https://github.com/ActiveSky/zotero-hide-manage",
+  "author": "ActiveSky",
+  "applications": {
+    "zotero": {
+      "id": "menuhider@jikuixie.local",
+      "update_url": "https://raw.githubusercontent.com/ActiveSky/zotero-hide-manage/main/update.json",
+      "strict_min_version": "8.0",
+      "strict_max_version": "11.*"
+    }
+  }
+}
