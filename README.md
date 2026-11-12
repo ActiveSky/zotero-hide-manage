@@ -18,6 +18,20 @@ Existing solutions (such as the menu manager built into Ethereal Style) have two
 
 Hide Manage takes a different approach: **collect, never reorder; touch third-party items, never native ones.**
 
+## Screenshots
+
+**System Manage — third-party items in the Tools menu are hidden until you tick them**
+
+![System Manage](docs/images/system-manage-tools.png)
+
+**Context Menu — Item tab: pick what appears under Other**
+
+![Context Menu — Item](docs/images/context-menu-item.png)
+
+**Context Menu — Collection tab**
+
+![Context Menu — Collection](docs/images/context-menu-collection.png)
+
 ## Features
 
 ### System Manage — menu bar

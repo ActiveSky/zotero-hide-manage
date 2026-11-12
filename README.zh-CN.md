@@ -18,6 +18,20 @@ Zotero 的插件生态很好，但每个插件都往菜单里塞东西：File �
 
 Hide Manage 换了个思路：**只做收纳，不做重排；只碰第三方项，不碰原生项。**
 
+## 界面截图
+
+**System Manage — Tools 菜单里的第三方项，只有勾选的才显示**
+
+![System Manage](docs/images/system-manage-tools.png)
+
+**Context Menu — Item 标签页：勾选要出现在 Other 里的项**
+
+![Context Menu — Item](docs/images/context-menu-item.png)
+
+**Context Menu — Collection 标签页**
+
+![Context Menu — Collection](docs/images/context-menu-collection.png)
+
 ## 特性
 
 ### System Manage — 菜单栏
