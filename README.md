@@ -20,6 +20,8 @@ Hide Manage takes a different approach: **collect, never reorder; touch third-pa
 
 ## Screenshots
 
+### Settings pane
+
 **System Manage — third-party items in the Tools menu are hidden until you tick them**
 
 ![System Manage](docs/images/system-manage-tools.png)
@@ -31,6 +33,16 @@ Hide Manage takes a different approach: **collect, never reorder; touch third-pa
 **Context Menu — Collection tab**
 
 ![Context Menu — Collection](docs/images/context-menu-collection.png)
+
+### In Zotero
+
+**Item context menu — every third-party entry is collected under Other**
+
+![Item context menu](docs/images/context-menu-other.png)
+
+**Tools menu — only the ticked Add-on Market appears; native items stay untouched**
+
+![Tools menu](docs/images/system-manage-result.png)
 
 ## Features
 

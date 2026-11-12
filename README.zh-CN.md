@@ -20,6 +20,8 @@ Hide Manage 换了个思路：**只做收纳，不做重排；只碰第三方项
 
 ## 界面截图
 
+### 设置页
+
 **System Manage — Tools 菜单里的第三方项，只有勾选的才显示**
 
 ![System Manage](docs/images/system-manage-tools.png)
@@ -31,6 +33,16 @@ Hide Manage 换了个思路：**只做收纳，不做重排；只碰第三方项
 **Context Menu — Collection 标签页**
 
 ![Context Menu — Collection](docs/images/context-menu-collection.png)
+
+### 实际效果
+
+**条目右键菜单 — 第三方项全部收进 Other**
+
+![条目右键菜单](docs/images/context-menu-other.png)
+
+**Tools 菜单 — 只显示勾选的 Add-on Market，原生项保持不变**
+
+![Tools 菜单](docs/images/system-manage-result.png)
 
 ## 特性
 
