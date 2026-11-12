@@ -1,6 +1,8 @@
-# Hide Manage for Zotero
+# Hide Manage — Zotero 菜单管理器
 
 **原生功能一个不动，第三方插件注入的菜单项统一归你管。**
+
+简体中文 | [English](#english)
 
 [![Release](https://img.shields.io/github/v/release/ActiveSky/zotero-hide-manage)](https://github.com/ActiveSky/zotero-hide-manage/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -113,16 +115,19 @@ Zotero 8+ 提供了官方的 `Zotero.MenuManager` 注册 API，但插件也能�
 
 ## 开发
 
-无构建依赖，源码即产物。
+无构建依赖，源码即产物。所有插件源码都在 `src/`，仓库根目录只保留文档、构建脚本和更新清单。
 
 ```
-manifest.json          插件清单
-bootstrap.js           主逻辑（菜单隐藏、收纳、生命周期）
-prefs.js               默认配置
-content/preferences.xhtml  设置页结构
-content/preferences.js     设置页逻辑
-content/icon.svg           设置页图标
-build.ps1              打包脚本
+src/
+├── manifest.json              插件清单
+├── bootstrap.js               主逻辑（菜单隐藏、收纳、生命周期）
+├── prefs.js                   默认配置
+└── content/
+    ├── preferences.xhtml      设置页结构
+    ├── preferences.js         设置页逻辑
+    └── icon.svg               设置页图标
+build.ps1                      打包脚本
+update.json                    自动更新清单
 ```
 
 打包：
@@ -131,7 +136,7 @@ build.ps1              打包脚本
 pwsh ./build.ps1
 ```
 
-产物为 `hide-manage.xpi`。
+脚本会把 `src/` 的内容放到 XPI 根目录（Zotero 要求 `manifest.json` 位于包根），产物为 `hide-manage.xpi`。
 
 调试：Zotero 的「工具 → 开发者 → 运行 JavaScript」中可以访问 `Zotero.MenuHider`，或查看「帮助 → 调试输出日志」。
 
