@@ -21,13 +21,25 @@
 
 ## 开发与打包
 
-无构建依赖：
+无构建依赖。源码都在 `src/`，仓库根目录只放文档和构建脚本：
+
+```
+src/
+├── manifest.json
+├── bootstrap.js
+├── prefs.js
+└── content/
+    ├── preferences.xhtml
+    ├── preferences.js
+    └── icon.svg
+build.ps1
+```
 
 ```powershell
 pwsh ./build.ps1
 ```
 
-生成的 `hide-manage.xpi` 可直接拖入 Zotero 插件窗口测试。
+脚本会把 `src/` 里的内容打到 XPI 根目录（Zotero 要求 `manifest.json` 必须在包根），生成的 `hide-manage.xpi` 可直接拖入 Zotero 插件窗口测试。
 
 调试入口：
 
@@ -37,7 +49,7 @@ pwsh ./build.ps1
 ## 代码约定
 
 - 纯 JavaScript（ES2020），不引入运行时依赖
-- 原生项判定逻辑集中在 `bootstrap.js` 的 `NATIVE_MENUBAR_IDS` / `NATIVE_CONTEXT_IDS`，新增判定请同步更新设置页的调用
+- 原生项判定逻辑集中在 `src/bootstrap.js` 的 `NATIVE_MENUBAR_IDS` / `NATIVE_CONTEXT_IDS`，新增判定请同步更新设置页的调用
 - 任何隐藏/移动操作必须可逆：只改 `hidden` 属性或移动节点，不删除节点
 
 ## 许可证
