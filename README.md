@@ -1,8 +1,8 @@
-# Hide Manage — Zotero 菜单管理器
+# Hide Manage for Zotero
 
-**原生功能一个不动，第三方插件注入的菜单项统一归你管。**
+**Native features stay untouched. Every third-party menu item answers to you.**
 
-简体中文 | [English](#english)
+English | [简体中文](README.zh-CN.md)
 
 [![Release](https://img.shields.io/github/v/release/ActiveSky/zotero-hide-manage)](https://github.com/ActiveSky/zotero-hide-manage/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -10,144 +10,135 @@
 
 ---
 
-## 为什么做这个插件
+## Why this plugin
 
-Zotero 的插件生态很好，但每个插件都往菜单里塞东西：File 底部多一行导出模板，Tools 里堆着同步管理器、模板编辑器、插件市场，右键菜单更是一屏放不下。装十个插件之后，真正属于 Zotero 的操作反而找不到了。
+Zotero's plugin ecosystem is great, but every plugin adds its own entries to the menus: an export template at the bottom of File, a sync manager, template editor and add-on market in Tools, and a context menu that no longer fits on one screen. Install ten plugins and the operations that actually belong to Zotero become hard to find.
 
-已有的方案（比如 Ethereal Style 内置的菜单管理器）有两个问题：一是只覆盖条目/分类右键，菜单栏管不到；二是靠标签文本匹配和重排实现，插件一改文案规则就失效，还容易和 Zotero 自身的菜单构建打架，出现顺序错乱。
+Existing solutions (such as the menu manager built into Ethereal Style) have two problems. First, they only cover the item and collection context menus, not the menu bar. Second, they work by matching label text and reordering entries, so they break as soon as a plugin changes its wording, and they tend to conflict with Zotero's own menu construction, producing entries out of order.
 
-Hide Manage 换了个思路：**只做收纳，不做重排；只碰第三方项，不碰原生项。**
+Hide Manage takes a different approach: **collect, never reorder; touch third-party items, never native ones.**
 
-## 特性
+## Features
 
-### System Manage — 菜单栏
+### System Manage — menu bar
 
-- 覆盖 **File / Edit / View / Tools / Help** 五个菜单
-- 所有第三方插件注入的项**默认隐藏**，只有你在设置里勾选的才显示
-- Zotero 原生项永远不会被隐藏或移动
-- 设置页按菜单分标签页，一目了然地勾选
-- 改完立即生效，下次展开菜单即可看到
+- Covers all five menus: **File / Edit / View / Tools / Help**
+- Every third-party item is **hidden by default**; only what you tick in the settings pane appears
+- Native Zotero items are never hidden or moved
+- One tab per menu makes the list easy to scan and tick
+- Changes apply immediately — reopen the menu to see them
 
-### Context Menu — 右键菜单
+### Context Menu — right-click menus
 
-- 覆盖 **条目** 和 **分类** 两个右键菜单
-- 所有第三方项收进一个顶级 **Other** 子菜单，按插件分组
-  （`Other ▸ Better Notes for Zotero ▸ Sync Manager`）
-- 只出现一个入口，菜单顶层重新变得清爽
-- 设置页可以逐项勾选，未勾选的项彻底隐藏
-- 单项插件直接平铺，不会为一项多套一层子菜单
+- Covers the **item** and **collection** context menus
+- Every third-party item is collected into a single top-level **Other** submenu, grouped by plugin
+  (`Other ▸ Better Notes for Zotero ▸ Sync Manager`)
+- One entry instead of dozens: the top level of the menu is clean again
+- Tick individual items in the settings pane; unticked items are hidden completely
+- A single-item plugin is shown flat, with no extra submenu wrapper
 
-### 设计原则
+### Design principles
 
-| 原则 | 说明 |
+| Principle | What it means |
 |---|---|
-| **原生优先** | 原生项由 Zotero 自己的 class 标记和 id 白名单识别，永不触碰 |
-| **完全可逆** | 只设置 `hidden` 和移动 DOM 节点，不删除任何东西；卸载插件即恢复 |
-| **精确归属** | MenuManager 注册的项通过官方 pluginID 精确识别，不靠猜 |
-| **不重排** | 不做自定义排序，避免和 Zotero 的菜单构建时序冲突 |
+| **Native first** | Native items are identified by Zotero's own class markers and id whitelists, and are never touched |
+| **Fully reversible** | Only the `hidden` attribute is set and DOM nodes are moved. Nothing is deleted; uninstalling restores everything |
+| **Exact ownership** | Items registered through MenuManager are attributed by their official pluginID, not guessed |
+| **No reordering** | No custom sort order, so there is no timing conflict with Zotero's own menu construction |
 
-## 安装
+## Installation
 
-1. 从 [Releases](https://github.com/ActiveSky/zotero-hide-manage/releases) 下载最新 `hide-manage.xpi`
-2. Zotero → 工具 → 插件 → 右上角齿轮 → **Install Plugin From File**
-3. 重启后进入 设置 → **Hide Manage**
+1. Download the latest `hide-manage.xpi` from [Releases](https://github.com/ActiveSky/zotero-hide-manage/releases)
+2. In Zotero: Tools → Plugins → gear icon (top right) → **Install Plugin From File**
+3. Restart, then open Settings → **Hide Manage**
 
-支持 Zotero 8 – 11。
+Supports Zotero 8 – 11.
 
-## 使用
+## Usage
 
-### 设置页
+### Settings pane
 
-设置 → Hide Manage，顶部有两个大类：
+Settings → Hide Manage has two top-level categories:
 
-- **System Manage**：五个菜单标签页，勾选要显示的第三方项
-- **Context Menu**：Item / Collection 两个标签页，勾选要出现在 Other 里的项
+- **System Manage**: five menu tabs. Tick the third-party items you want to show.
+- **Context Menu**: Item / Collection tabs. Tick the items that should appear under Other.
 
-每个标签页都有 **Show all / Hide all / Refresh**。列表右侧会标注该项来自哪个插件。
+Every tab has **Show all / Hide all / Refresh**. The right side of each row shows which plugin the item comes from.
 
-> 由插件动态注册的菜单项，需要先展开一次对应菜单，再点 **Refresh** 才会出现在列表里。
+> Items registered dynamically by a plugin only appear in the list after that menu has been opened once and you click **Refresh**.
 
-### 默认行为
+### Default behaviour
 
-- 菜单栏：第三方项默认全部隐藏（白名单模型）
-- 右键菜单：第三方项默认全部显示，但都收在 Other 里（黑名单模型）
+- Menu bar: all third-party items are hidden by default (whitelist model)
+- Context menu: all third-party items are shown by default, but collected under Other (blacklist model)
 
-## 配置项
+## Preferences
 
-高级配置在 Zotero 的配置编辑器（设置 → 高级 → 配置编辑器）中，前缀 `extensions.zotero.menuhider.`：
+Advanced preferences live in Zotero's Config Editor (Settings → Advanced → Config Editor), prefixed with `extensions.zotero.menuhider.`:
 
-| 键 | 类型 | 默认 | 说明 |
+| Key | Type | Default | Description |
 |---|---|---|---|
-| `showOnly` | bool | `true` | 菜单栏是否启用"仅显示勾选项" |
-| `show` | JSON string | `{}` | 菜单栏白名单，形如 `{"tools":["l10n:..."]}` |
-| `contextHidden` | JSON string | `{}` | 右键菜单黑名单，形如 `{"item":["id:..."]}` |
-| `groupMenus` | bool | `true` | 是否启用右键菜单收纳 |
-| `groupLabel` | string | `"Other"` | 收纳子菜单的顶层名称 |
-| `minGroupSize` | int | `2` | 达到多少项才为插件单独建子菜单 |
-| `rules` | JSON string | `{}` | 强制隐藏规则（可作用于原生项） |
-| `legacyGroups` | JSON string | 见默认值 | legacy 项的 id/l10n 前缀 → 插件显示名 |
-| `nativeIds` | JSON array | `[]` | 强制视为原生项，形如 `["id:foo","l10n:bar"]` |
-| `scan` | bool | `true` | 展开菜单时把清单写入 `<数据目录>/menuhider-inventory.json` |
+| `showOnly` | bool | `true` | Whether the menu bar uses "show only ticked items" |
+| `show` | JSON string | `{}` | Menu bar whitelist, e.g. `{"tools":["l10n:..."]}` |
+| `contextHidden` | JSON string | `{}` | Context menu blacklist, e.g. `{"item":["id:..."]}` |
+| `groupMenus` | bool | `true` | Whether to collect context menu items under Other |
+| `groupLabel` | string | `"Other"` | Label of the collection submenu |
+| `minGroupSize` | int | `2` | Minimum items before a plugin gets its own submenu |
+| `rules` | JSON string | `{}` | Forced hide rules (can target native items) |
+| `legacyGroups` | JSON string | see defaults | legacy id/l10n prefix → plugin display name |
+| `nativeIds` | JSON array | `[]` | Force items to be treated as native, e.g. `["id:foo","l10n:bar"]` |
+| `scan` | bool | `true` | Write the menu inventory to `<data dir>/menuhider-inventory.json` when a menu opens |
 
-规则键支持四种前缀：`id:`、`l10n:`、`label:`、`plugin:`。
+Rule keys accept four prefixes: `id:`, `l10n:`, `label:`, `plugin:`.
 
-## 工作原理
+## How it works
 
-Zotero 8+ 提供了官方的 `Zotero.MenuManager` 注册 API，但插件也能直接往 DOM 里 `appendChild`，所以菜单里有两条来源通道：
+Zotero 8+ provides an official `Zotero.MenuManager` registration API, but plugins can also append nodes to the DOM directly, so menu items come from two channels:
 
-1. **MenuManager 注册的项**：元素带 `zotero-custom-menu-item` class，class 里还包含 `CSS.escape(pluginID-menuID)`，可以反查是哪个插件
-2. **legacy 注入的项**：只能按 `id` / `data-l10n-id` / 标签文本匹配
+1. **Items registered through MenuManager**: the element carries a `zotero-custom-menu-item` class, and the class list includes `CSS.escape(pluginID-menuID)`, which tells you exactly which plugin it belongs to.
+2. **Items injected the legacy way**: matched by `id`, `data-l10n-id`, or label text only.
 
-原生项的识别：
-- 菜单栏：内置 Zotero 10 的原生 id 白名单，加上 `menu-type-*` class 和 id 前缀判断
-- 右键菜单：原生项统一带 `zotero-menuitem-*` class，个别例外（如 `addFeed`）用 id 白名单补上
+Native item detection:
+- Menu bar: a built-in whitelist of Zotero 10 native ids, plus `menu-type-*` classes and id prefixes.
+- Context menus: native items all carry a `zotero-menuitem-*` class; a few exceptions (such as `addFeed`) are covered by an id whitelist.
 
-隐藏时机：在 `popupshowing` 中处理完毕后，再延迟两次（0ms / 60ms）重新应用。这是因为部分插件会在自己的 `popupshowing` 处理器里把 `hidden` 重置掉，而它们的监听器可能注册得比我们晚。
+When hiding is applied: after handling `popupshowing`, the rules are re-applied twice with a delay (0 ms and 60 ms). Some plugins reset `hidden` in their own `popupshowing` handler, and their listener may be registered after ours.
 
-收纳实现：每次展开右键菜单时先拆掉上一次生成的 Other，把 legacy 节点放回原位，丢弃 MenuManager 的过期节点，然后重新按当前勾选状态构建。这避开了 MenuManager 只清理直接子元素的机制限制。
+How collection works: on every context menu open, the previous Other container is dismantled, legacy nodes are moved back to their original position, stale MenuManager nodes are dropped, and the container is rebuilt from the current selection. This works around MenuManager's cleanup, which only removes direct children.
 
-## 已知限制
+## Known limitations
 
-- 只处理菜单的顶层项，不递归自定义子菜单内部
-- MenuManager 注册的项需要先展开过一次菜单，才会出现在设置列表里
-- 与 Ethereal Style 的「菜单可见性管理」功能互斥，请保持后者关闭
-- Zotero 大版本升级可能新增原生项，若被误判可用 `nativeIds` 手动加入白名单
+- Only top-level items are handled; the inside of custom submenus is not touched
+- Items registered through MenuManager only appear in the settings list after that menu has been opened once
+- Mutually exclusive with Ethereal Style's "Menu Visibility Manager" — keep that feature disabled
+- A Zotero major upgrade may add native items; if one is misclassified, add it to the `nativeIds` whitelist
 
-## 开发
+## Development
 
-无构建依赖，源码即产物。所有插件源码都在 `src/`，仓库根目录只保留文档、构建脚本和更新清单。
+No build dependencies; the source is the product. All plugin source lives in `src/`; the repository root only keeps docs, the build script and the update manifest.
 
 ```
 src/
-├── manifest.json              插件清单
-├── bootstrap.js               主逻辑（菜单隐藏、收纳、生命周期）
-├── prefs.js                   默认配置
+├── manifest.json              plugin manifest
+├── bootstrap.js               main logic (hiding, collection, lifecycle)
+├── prefs.js                   default preferences
 └── content/
-    ├── preferences.xhtml      设置页结构
-    ├── preferences.js         设置页逻辑
-    └── icon.svg               设置页图标
-build.ps1                      打包脚本
-update.json                    自动更新清单
+    ├── preferences.xhtml      settings pane markup
+    ├── preferences.js         settings pane logic
+    └── icon.svg               settings pane icon
+build.ps1                      build script
+update.json                    auto-update manifest
 ```
 
-打包：
+Build:
 
 ```powershell
 pwsh ./build.ps1
 ```
 
-脚本会把 `src/` 的内容放到 XPI 根目录（Zotero 要求 `manifest.json` 位于包根），产物为 `hide-manage.xpi`。
+The script puts the contents of `src/` at the root of the XPI (Zotero requires `manifest.json` at the package root) and writes `hide-manage.xpi`.
 
-调试：Zotero 的「工具 → 开发者 → 运行 JavaScript」中可以访问 `Zotero.MenuHider`，或查看「帮助 → 调试输出日志」。
-
-## English
-
-**Hide Manage** takes back control of Zotero's menus.
-
-- **System Manage** — hides third-party items in the File / Edit / View / Tools / Help menus by default; you choose what to bring back. Native Zotero items are never touched.
-- **Context Menu** — collects every third-party item from the item and collection context menus into a single **Other** submenu, grouped by plugin. Pick which ones appear in the settings pane.
-
-Design: native-first classification, fully reversible, no reordering, no DOM deletion. Requires Zotero 8+.
+Debugging: open Zotero's Tools → Developer → Run JavaScript; `Zotero.MenuHider` is available there. Logs are in Help → Debug Output Logging.
 
 ## License
 
