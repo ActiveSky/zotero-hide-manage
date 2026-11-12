@@ -9,6 +9,7 @@
 - 仓库结构调整：插件源码移入 `src/`，根目录只保留文档、构建脚本和更新清单
 - README 改为英文优先，中文版移至 `README.zh-CN.md`，开发说明同步新的目录结构
 - README 增加设置页与实际效果截图，按功能成对展示（`docs/images/`）
+- CONTRIBUTING 改为英文优先，中文版移至 `CONTRIBUTING.zh-CN.md`
 
 ## [0.6.0] - 2026-11-08
 

@@ -172,6 +172,8 @@ The script puts the contents of `src/` at the root of the XPI (Zotero requires `
 
 Debugging: open Zotero's Tools → Developer → Run JavaScript; `Zotero.MenuHider` is available there. Logs are in Help → Debug Output Logging.
 
+Contribution guidelines: [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 [MIT](LICENSE) © 2026 Jikui Xie (ActiveSky)

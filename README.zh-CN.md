@@ -172,6 +172,8 @@ pwsh ./build.ps1
 
 调试：Zotero 的「工具 → 开发者 → 运行 JavaScript」中可以访问 `Zotero.MenuHider`，或查看「帮助 → 调试输出日志」。
 
+贡献指南见 [CONTRIBUTING.zh-CN.md](CONTRIBUTING.zh-CN.md)。
+
 ## 许可证
 
 [MIT](LICENSE) © 2026 Jikui Xie (ActiveSky)
